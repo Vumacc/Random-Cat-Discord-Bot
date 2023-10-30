@@ -1,2 +1,6 @@
 # Random-Cat-Discord-Bot
-It's a discord bot with 1 command that gives a random image of a cat
+A very simple discord bot with a single command that sends a random image of a cat
+
+# Permissions needed
+- Send messages
+- Embed links
