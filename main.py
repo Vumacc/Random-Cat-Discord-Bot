@@ -1,11 +1,15 @@
 from discord.ext import commands
-import Cats_list
 import discord
 import random
 
 intents = discord.Intents.all()
 # Change "!" to change the bot prefix
 bot = commands.Bot(command_prefix='!', intents=intents, help_command=None)
+
+def get_random_cat(filename):
+    with open(filename, 'r') as file:
+        lines = file.readlines()
+        return random.choice(lines)
 
 @bot.event
 async def on_ready():
@@ -15,8 +19,8 @@ async def on_ready():
     print(f'{bot.user.name} is now online!')
 
 @bot.command()
-async def random_cat(ctx):
-    random_cat = random.choice(Cats_list.cats)
+async def cat(ctx):
+    random_cat = get_random_cat(Cats_list.txt)
     await ctx.send(random_cat)
 
 # Replace "Your bot token" with your actual bot token
